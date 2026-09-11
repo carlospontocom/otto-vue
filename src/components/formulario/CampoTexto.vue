@@ -1,5 +1,5 @@
 <template>
-    <input :type="type" :placeholder="placeholder" v-model="model"/> 
+    <q-input :type="type" :placeholder="placeholder" v-model="model" outlined/> 
 </template>
 
 <script setup lang="ts">

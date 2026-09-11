@@ -37,11 +37,19 @@ declare module 'vue-router/auto-routes' {
       Record<never, never>,
       Record<never, never>,
       | '//(index)'
+      | '//gerenciadorCarteira'
       | '//second'
     >,
     '//(index)': RouteRecordInfo<
       '//(index)',
       '/',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '//gerenciadorCarteira': RouteRecordInfo<
+      '//gerenciadorCarteira',
+      '/gerenciadorCarteira',
       Record<never, never>,
       Record<never, never>,
       | never
@@ -77,6 +85,7 @@ declare module 'vue-router/auto-routes' {
       routes:
         | '/'
         | '//(index)'
+        | '//gerenciadorCarteira'
         | '//second'
       views:
         | 'default'
@@ -86,6 +95,14 @@ declare module 'vue-router/auto-routes' {
     'src/pages/index/(index).vue': {
       routes:
         | '//(index)'
+      views:
+        | never
+      pathParamNames:
+        | never
+    }
+    'src/pages/index/gerenciadorCarteira.vue': {
+      routes:
+        | '//gerenciadorCarteira'
       views:
         | never
       pathParamNames:

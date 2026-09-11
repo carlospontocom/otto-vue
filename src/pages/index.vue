@@ -41,51 +41,29 @@ import EssentialLink, {
   type EssentialLinkProps
 } from "@/components/EssentialLink.vue";
 
-const linksList: EssentialLinkProps[] = [
+const linksList = [
+  // Links internos da sua aplicação
   {
-    label: "Docs",
-    caption: "quasar.dev",
-    icon: "school",
-    link: "https://quasar.dev"
+    label: 'Home',
+    caption: 'Página inicial',
+    icon: 'home',
+    link: '/'
   },
   {
-    label: "GitHub",
-    caption: "github.com/quasarframework",
-    icon: "code",
-    link: "https://github.com/quasarframework"
+    label: 'Gestor',
+    caption: 'Gerenciar transações',
+    icon: 'account_balance_wallet',
+    link: '/gerenciadorCarteira'
   },
-  {
-    label: "Discord Chat Channel",
-    caption: "chat.quasar.dev",
-    icon: "chat",
-    link: "https://chat.quasar.dev"
-  },
-  {
-    label: "Forum",
-    caption: "forum.quasar.dev",
-    icon: "record_voice_over",
-    link: "https://forum.quasar.dev"
-  },
-  {
-    label: "Twitter",
-    caption: "@quasarframework",
-    icon: "rss_feed",
-    link: "https://twitter.quasar.dev"
-  },
-  {
-    label: "Facebook",
-    caption: "@QuasarFramework",
-    icon: "public",
-    link: "https://facebook.quasar.dev"
-  },
-  {
-    label: "Quasar Awesome",
-    caption: "Community Quasar projects",
-    icon: "favorite",
-    link: "https://awesome.quasar.dev"
-  }
-];
 
+  // Link externo
+  {
+    label: 'Documentação Quasar',
+    caption: 'quasar.dev',
+    icon: 'school',
+    link: 'https://quasar.dev'
+  }
+]
 const leftDrawerOpen = ref(false);
 
 function toggleLeftDrawer() {
