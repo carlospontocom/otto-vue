@@ -29,8 +29,8 @@
       />
       <select v-model="formulario.tipoEvento">
         <option value="" disabled>Selecione o tipo</option>
-        <option value="receita">Receita</option>
-        <option value="despesa">Despesa</option>
+        <option value="Renda">Renda</option>
+        <option value="Despesa">Despesa</option>
       </select>
       <input type="date" v-model="formulario.dataEvento" />
 
@@ -39,15 +39,15 @@
 
     <div class="barsearch">
       <strong>Filtrar por: </strong>
-      <select v-model="formulario.tipoEvento">
-        <option value="" disabled>Selecione o tipo</option>
-        <option value="receita">Receita</option>
-        <option value="despesa">Despesa</option>
+      <select v-model="campoFiltro">
+        <option value="">Todos</option>
+        <option value="Renda">Renda</option>
+        <option value="Despesa">Despesa</option>
       </select>
     </div>
 
     <ul class="list">
-      <li v-for="operacao in operacoes" :key="operacao.id" class="item-list">
+      <li v-for="operacao in filtrados" :key="operacao.id" class="item-list">
         <p>{{ operacao.descricao }}</p>
         <p>{{ moedaBR(operacao.valor) }}</p>
         <p>{{ operacao.tipoEvento }}</p>
@@ -71,6 +71,8 @@ const {
   formulario,
   totalDespesas,
   totalRendas,
+  filtrados,
+  campoFiltro,
   saldo,
   operacoes,
   adicionar,

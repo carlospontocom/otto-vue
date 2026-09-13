@@ -102,18 +102,36 @@ function dataBR(data: string): string {
   return `${dia}/${mes}/${ano}`;
 }
 
-const totalDespesas = computed(()=>{
-  return operacoes.value.filter(op => op.tipoEvento === 'Despesa').reduce((acc,op)=>acc + (op.valor ?? 0),0)
-})
+const totalDespesas = computed(() => {
+  return operacoes.value
+    .filter(op => op.tipoEvento === "Despesa")
+    .reduce((acc, op) => acc + (op.valor ?? 0), 0);
+});
 
-const totalRendas = computed(()=>{
-  return operacoes.value.filter(op=>op.tipoEvento==='Renda').reduce((acc,op) => acc + (op.valor ?? 0),0);
-})
+const totalRendas = computed(() => {
+  return operacoes.value
+    .filter(op => op.tipoEvento === "Renda")
+    .reduce((acc, op) => acc + (op.valor ?? 0), 0);
+});
 
-const saldo = computed(()=>{
+const saldo = computed(() => {
   return totalRendas.value - totalDespesas.value;
-})
+});
 
+const campoFiltro = ref<string>("");
+
+const filtrados = computed(() => {
+  if (!campoFiltro.value) return operacoes.value;
+
+  if (campoFiltro.value === "Despesa") {
+    return operacoes.value.filter(op => op.tipoEvento === "Despesa");
+  }
+  if (campoFiltro.value === "Renda") {
+    return operacoes.value.filter(op => op.tipoEvento === "Renda");
+  } else {
+    return operacoes.value;
+  }
+});
 
 export function useCarteira() {
   return {
@@ -125,6 +143,8 @@ export function useCarteira() {
     totalDespesas,
     totalRendas,
     saldo,
+    campoFiltro,
+    filtrados,
     adicionar,
     remover,
     limparCampos
