@@ -1,7 +1,7 @@
 <template>
-  <FormDefault />
+  <CrudSimples />
 </template>
 
 <script setup lang="ts">
-  import FormDefault from '@/components/formulario/FormDefault.vue';
+  import CrudSimples from '@/components/formulario/CrudSimples.vue';
 </script>
