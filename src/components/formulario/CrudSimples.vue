@@ -34,7 +34,8 @@
       </select>
       <input type="date" v-model="formulario.dataEvento" />
 
-      <button class="btn-add" type="submit">Adicionar</button>
+      <button class="btn-add" type="submit">{{idEditando ? 'Atualizar dados' : 'Adicionar operação'}}</button>
+      <q-btn @click="cancelarEdicao" color="red" v-if="idEditando !==null">Cancelar</q-btn>
     </form>
 
     <div class="barsearch">
@@ -54,7 +55,7 @@
         <p>{{ dataBR(operacao.dataEvento) }}</p>
         <div class="actions">
           <button @click="remover(operacao.id)" class="delete"> x </button>
-          <button class="edit"> editar </button>
+          <button class="edit" @click="editar(operacao.id)"> editar </button>
         </div>
       </li>
     </ul>
@@ -77,6 +78,10 @@ const {
   operacoes,
   adicionar,
   remover,
-  limparCampos
+  limparCampos,
+  idEditando,
+  editar,
+  cancelarEdicao,
+  salvarDadosAtualizacao
 } = useCarteira();
 </script>
